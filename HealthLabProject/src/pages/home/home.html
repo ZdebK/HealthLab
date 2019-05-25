@@ -6,10 +6,37 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-icon id="icon-alarm" name="alarm"></ion-icon>
+    <ion-icon id ="icon-wifi" name="wifi"></ion-icon>
+    <ion-icon id="icon-battery-full" name="battery-full"></ion-icon>
+  </ion-navbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>HealthLab</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content class="content-style" padding>
+  <ion-card class="card">
+      <ion-card-header>
+        <ion-card-title>Zjedz posiłek</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+      <ion-icon name="restaurant"></ion-icon> 
+        Kanapka z serem
+      </ion-card-content>
+    </ion-card>
 
-<ion-content padding>
-
+    <ion-card class="card">
+        <ion-card-header>
+          <ion-card-title>Weź lek</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+        <ion-icon name="pulse"></ion-icon> 
+          Nazwa leku
+        </ion-card-content>
+      </ion-card>
 </ion-content>
