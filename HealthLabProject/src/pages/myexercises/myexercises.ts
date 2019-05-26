@@ -7,16 +7,18 @@ import { NavController} from 'ionic-angular';
 })
 export class MyExercisesPage {
 
-  videos: any[] = {
+  videos: any[] = [
     {
       title: 'Ćwiczenia wzmacniające kręgosłup',
-      video: 'https://www.youtube.com/watch?v=w33yS-OWRR4',
+      video: 'https://www.youtube.com/embed/w33yS-OWRR4',
     },
     {
       title: '5 prostych ćwiczeń',
-      video: 'https://www.youtube.com/watch?v=sDwxXZgfYfQ',
+      video: 'https://www.youtube.com/embed/sDwxXZgfYfQ',
     }
-}
+  ]
 
-  constructor(public navCtrl: NavController){}
+  constructor(public navCtrl: NavController){
+
+  }
 }

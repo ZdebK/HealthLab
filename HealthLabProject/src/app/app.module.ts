@@ -19,7 +19,6 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 
-
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +34,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

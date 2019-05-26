@@ -10,11 +10,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class YoutubePipe implements PipeTransform {
   
-  constructor(private dom: DomSanitizer){
+  constructor(private _sanitizer: DomSanitizer){
 
   }
 
   transform(value: string, ...args) {
-    return this.dom.bypassSecurityTrustResourceUrl(value);
+    console.log(value)
+    return this._sanitizer.bypassSecurityTrustResourceUrl(value);
+    // return this.dom.bypassSecurityTrustResourceUrl(value);
   }
 }

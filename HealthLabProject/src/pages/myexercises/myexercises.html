@@ -15,10 +15,10 @@
     <p>MY EXERCISES PAGE</p>
     <ion-card *ngFor="let video of videos">
         <ion-card-header>
-            {{video.ion-title}}
+            {{video.title}}
         </ion-card-header>
         <ion-card-content>
-            <iframe width="100%" height="315" src="video.video|youtube" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="315" [src]="video.video|youtube" frameborder="0" allowfullscreen></iframe>
         </ion-card-content>
     </ion-card>
 </ion-content>
