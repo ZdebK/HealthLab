@@ -11,13 +11,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { LocalNotifications, LocalNotificationsOriginal } from "@ionic-native/local-notifications";
+import { HomePage } from '../pages/home/home';
 
 
 @NgModule({
   declarations: [
     MyApp,
     ListPage,
-//    HomePage,
+    HomePage,
   ],
   imports: [
     BrowserModule,
@@ -28,12 +30,13 @@ import { AngularFireAuthModule } from "angularfire2/auth";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-   // HomePage,
+    HomePage,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotificationsOriginal,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
