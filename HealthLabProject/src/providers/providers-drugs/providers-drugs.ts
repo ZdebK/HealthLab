@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-export enum SearchType{
-  name ='',
-  description = 'description'
+export enum SearchType {
+  results = 'results',
+  warnings = 'warnings',
+  all = "all"
 }
 /*
   Generated class for the ProvidersDrugsProvider provider.
@@ -27,7 +28,8 @@ export class ProvidersDrugsProvider {
       return this.http.get(`${this.url}api/v1/references/medical/xml/"${this.drugName}"?key=${this.apiKey}.text`).map(e => e['dt']);
   }
 
-  getDetails(){
+  getDetails(drugName: string): Observable<any>{
+    return this.http.get(`https://api.fda.gov/drug/label.json?search=active_ingredient:${drugName}`).map(e => e.toString());
 
   }
 

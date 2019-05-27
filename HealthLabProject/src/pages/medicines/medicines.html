@@ -13,4 +13,12 @@
 </ion-header>
 <ion-content class="content-style" padding>
   <p>MEDICINES PAGE</p>
+
+
+<!-- <ion-searchbar [{ngModel}]="searchTerm" (ionChange)="getItem($event)"></ion-searchbar> -->
+
+<button (onclick)="search()">CLICK TO SEARCH</button>
 </ion-content>
+<!-- <ion-list>
+  <ion-item button *ngFor="let item of {results | async}">{{item}}</ion-item>
+</ion-list> -->
