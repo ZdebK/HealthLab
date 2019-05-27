@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
-//import { HomePage } from '../pages/home/home';
 import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
 
@@ -18,12 +16,11 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
-import { HomePage } from '../pages/home/home';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     ListPage,
     MedicinesPage, 
     LiquidsPage,
@@ -40,7 +37,6 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     ListPage,
     MedicinesPage,
     LiquidsPage,
