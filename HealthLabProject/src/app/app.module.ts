@@ -11,7 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
-import { LocalNotifications, LocalNotificationsOriginal } from "@ionic-native/local-notifications";
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { HomePage } from '../pages/home/home';
 
 
@@ -36,7 +36,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    LocalNotificationsOriginal,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
