@@ -10,13 +10,12 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 export class LiquidsPage {
   
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private plt: Platform, public navParams: NavParams) {
-    this.plt.ready().then((rdy) ==> {
-      this.localNotifications.on('click', (notification,state) ==> {
-        let json = JSON.parse(notification, data);
-
+    this.plt.ready().then((rdy) => {
+      this.localNotifications.on('click', (notification, state) => {
+        let json = JSON.parse(notification.data);
         let alert = this.alertCtrl.create({
-          title: Notification,title,
-          subTitle json.mydata
+          title: notification.title,
+          subTitle = json.mydata,
         });
         alert.present();
       });
