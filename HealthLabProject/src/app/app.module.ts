@@ -17,7 +17,9 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { ProvidersDrugsProvider } from '../providers/providers-drugs/providers-drugs';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { AngularFireAuthModule } from "angularfire2/auth";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +53,8 @@ import { AngularFireAuthModule } from "angularfire2/auth";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProvidersDrugsProvider
   ]
 })
 export class AppModule {}
