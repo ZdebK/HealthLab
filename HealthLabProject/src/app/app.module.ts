@@ -12,12 +12,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DishesPage } from '../pages/dishes/dishes';
 import { LiquidsPage } from '../pages/liquids/liquids';
 import { MyExercisesPage } from '../pages/myexercises/myexercises';
+import { YoutubePipe } from '../pipes/youtube/youtube';
 
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
-
 
 @NgModule({
   declarations: [
@@ -27,14 +27,14 @@ import { AngularFireAuthModule } from "angularfire2/auth";
     MedicinesPage, 
     LiquidsPage,
     DishesPage, 
-    MyExercisesPage
-
+    MyExercisesPage,
+    YoutubePipe
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
