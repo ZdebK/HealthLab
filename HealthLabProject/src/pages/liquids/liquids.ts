@@ -3,11 +3,10 @@ import { Component } from '@angular/core';
 import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotificationActionType, ILocalNotification } from '@ionic-native/local-notifications/ngx';
  
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'liquids',
+  templateUrl: 'liquids.html'
 })
-export class HomePage {
+export class LiquidsPage {
   scheduled = [];
  
   constructor(private plt: Platform, private localNotifications: LocalNotifications, private alertCtrl: AlertController) {
