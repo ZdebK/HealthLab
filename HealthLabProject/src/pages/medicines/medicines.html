@@ -18,7 +18,7 @@
         <ion-row>
           <ion-col size="10">
             <div>
-              <ion-input placeholder="Type medicine name..."></ion-input>
+              <ion-input placeholder="Ibuprofen..."></ion-input>
             </div>
           </ion-col>
           <ion-col size="2">
@@ -32,10 +32,22 @@
   </ion-card>
 
   <ion-list *ngFor="let p of something | async">
-    <ion-item >{{p.purpose}}</ion-item>
-    <ion-item >{{p.indications_and_usage}}</ion-item>
-    <ion-item >{{p.pregnancy_or_breast_feeding}}</ion-item>
-    <ion-item >{{p.warnings}}</ion-item>
+    <ion-card-content>
+      <ion-label>Purpose</ion-label>
+      <ion-row >{{p.purpose}}</ion-row>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-label> Indication and usage</ion-label>
+      <ion-row>{{p.indications_and_usage}}</ion-row>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-label>Information for pregnant women</ion-label>
+      <ion-row >{{p.pregnancy_or_breast_feeding}}</ion-row>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-label>Warnings</ion-label>
+      <ion-row>{{p.warnings}}</ion-row>
+    </ion-card-content>
   </ion-list>
 
 </ion-content>

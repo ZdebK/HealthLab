@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { ListPage } from '../pages/list/list';
 
 import { MedicinesPage } from '../pages/medicines/medicines';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     MyApp,
-    ListPage,
     MedicinesPage, 
     LiquidsPage,
     DishesPage, 
@@ -40,7 +38,6 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ListPage,
     MedicinesPage,
     LiquidsPage,
     DishesPage,
