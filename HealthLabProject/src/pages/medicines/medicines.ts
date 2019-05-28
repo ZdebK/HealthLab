@@ -1,24 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ProvidersDrugsProvider, SearchType } from '../../providers/providers-drugs/providers-drugs';
-import { Observable } from 'rxjs';
+import { ProvidersDrugsProvider} from '../../providers/providers-drugs/providers-drugs';
+// import { Observable } from 'rxjs';
+// import { Injectable } from '@angular/core';
+import 'rxjs/Rx'; 
 
 @Component({
   selector: 'medicines',
   templateUrl: 'medicines.html'
 })
-export class MedicinesPage {
 
-  results: Observable<any>;
+export class MedicinesPage implements OnInit {
+
+  results :any;
   searchTerm= 'ibuprofen';
-  type: SearchType = SearchType.all;
 
   constructor(public navCtrl: NavController, private drugsProvider: ProvidersDrugsProvider) {
-
   }
 
-  search(){
-    this.results = this.drugsProvider.getDetails(this.searchTerm);
-    console.log('My result'+ this.results);
+  ngOnInit(){
+      this.drugsProvider.getDetails(this.searchTerm).subscribe(e =>{
+        this.results = e;
+        console.log('My result'+ this.results);
+      });
+      
   }
 }
