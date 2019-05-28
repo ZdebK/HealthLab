@@ -16,8 +16,13 @@
 
 
 <!-- <ion-searchbar [{ngModel}]="searchTerm" (ionChange)="getItem($event)"></ion-searchbar> -->
-
-<button style="background-color: red;" (click)="search()">CLICK TO SEARCH</button>
+<tbody>
+  <tr *ngFor="let p of something | async">
+      <td>{{p.purpose}}</td>
+      <td>{{p.indications_and_usage}}</td>
+  </tr>
+</tbody>
+<button ion-button style="background-color: red;" (click)="search()">CLICK TO SEARCH</button>
 </ion-content>
 <!-- <ion-list>
   <ion-item button *ngFor="let item of {results | async}">{{item}}</ion-item>
