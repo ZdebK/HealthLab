@@ -1,80 +1,45 @@
-import { Platform, AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
-import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotificationActionType, ILocalNotification } from '@ionic-native/local-notifications/ngx';
+import { NavController, Platform, AlertController } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
  
 @Component({
   selector: 'liquids',
   templateUrl: 'liquids.html'
 })
 export class LiquidsPage {
-  scheduled = [];
+  data = { title:'', description:'', date:'', time:'' };
  
-  constructor(private plt: Platform, private localNotifications: LocalNotifications, private alertCtrl: AlertController) {
-    /*this.plt.ready().then(() => {
-      this.localNotifications.on('click').subscribe(res => {
-        let msg = res.data ? res.data.mydata : '';
-        this.showAlert(res.title, res.text, msg);
-      });
+  constructor(public navCtrl: NavController,
+    public localNotifications: LocalNotifications,
+    public platform: Platform,
+    public alertCtrl: AlertController) {}
+  
  
-      this.localNotifications.on('trigger').subscribe(res => {
-        let msg = res.data ? res.data.mydata : '';
-        this.showAlert(res.title, res.text, msg);
-      });
-    });
-    */
-  }
- 
-  scheduleNotification() {
+  submit() {
+    console.log(this.data);
+    var date = new Date(this.data.date+" "+this.data.time);
+    console.log(date);
     this.localNotifications.schedule({
-      id: 1,
       title: 'Attention',
       text: 'Simons Notification',
       data: { mydata: 'My hidden message this is' },
-      trigger: { in: 5, unit: ELocalNotificationTriggerUnit.SECOND },
-      foreground: true // Show the notification while app is open
+      trigger: { every: { hour: 9, minute: 30 } },
+      sound: this.setSound(),
     });
- 
-    // Works as well!
-    // this.localNotifications.schedule({
-    //   id: 1,
-    //   title: 'Attention',
-    //   text: 'Simons Notification',
-    //   data: { mydata: 'My hidden message this is' },
-    //   trigger: { at: new Date(new Date().getTime() + 5 * 1000) }
-    // });
-  }
- 
-  recurringNotification() {
-    this.localNotifications.schedule({
-      id: 22,
-      title: 'Recurring',
-      text: 'Simons Recurring Notification',
-      trigger: { every: ELocalNotificationTriggerUnit.MINUTE }
+    let alert = this.alertCtrl.create({
+      title: 'Congratulation!',
+      subTitle: 'Notification setup successfully at '+date,
+      buttons: ['OK']
     });
+    alert.present();
+    this.data = { title:'', description:'', date:'', time:'' };
+    }
+  
+    setSound() {
+      if (this.platform.is('android')) {
+        return 'file://assets/sounds/Rooster.mp3'
+      } else {
+        return 'file://assets/sounds/Rooster.caf'
+      }
+    }
   }
- 
-  repeatingDaily() {
-    this.localNotifications.schedule({
-      id: 42,
-      title: 'Good Morning',
-      text: 'Code something epic today!',
-      trigger: { every: { hour: 9, minute: 30 } }
-    });
-  }
- 
- /* showAlert(header, sub, msg) {
-    this.alertCtrl.create({
-      header: header,
-      subHeader: sub,
-      message: msg,
-      buttons: ['Ok']
-    }).then(alert => alert.present());
-  }
-  */
- 
-  getAll() {
-    this.localNotifications.getAll().then((res: ILocalNotification[]) => {
-      this.scheduled = res;
-    })
-  }
-}
