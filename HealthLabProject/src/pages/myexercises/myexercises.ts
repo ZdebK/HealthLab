@@ -9,36 +9,36 @@ export class MyExercisesPage {
 
   videos: any[] = [
     {
-      title: 'Ćwiczenia wzmacniające kręgosłup',
-      video: 'https://www.youtube.com/embed/w33yS-OWRR4',
+      title: 'Legs workout with Mariusz Pudzianowski',
+      video: 'https://www.youtube.com/watch?v=hEJ6HZX6pTY',
     },
     {
-      title: '5 prostych ćwiczeń',
-      video: 'https://www.youtube.com/embed/sDwxXZgfYfQ',
+      title: '5 Simple Exercises to Lose Thigh Fat',
+      video: 'https://www.youtube.com/watch?v=-RfsfNsp1vs',
     },
     {
-      title: 'Trening brzucha',
-      video: 'https://www.youtube.com/embed/LKO1yzvtK9s',
+      title: '10 Min Abs Workout',
+      video: 'https://www.youtube.com/watch?v=1919eTCoESo',
     },
     {
-      title: 'Trening funkcjonalny',
-      video: 'https://www.youtube.com/embed/Die0oESBhyE',
+      title: 'Basic Functional Training',
+      video: 'https://www.youtube.com/watch?v=NX8lRmIsHLE',
     },
     {
-      title: 'Martwy ciąg',
-      video: 'https://www.youtube.com/embed/0_igODjLiXM',
+      title: 'Exercises to strengthen back',
+      video: 'https://www.youtube.com/watch?v=TGI5TFnY8Ck',
     },
     {
-      title: 'Podciąganie',
-      video: 'https://www.youtube.com/embed/olxgbxHIHTY',
+      title: 'Biceps Workout',
+      video: 'https://www.youtube.com/watch?v=gozU3CUIizs',
     },
     {
-      title: 'Wyciskanie sztangi',
-      video: 'https://www.youtube.com/embed/bbGuHx07EDc',
+      title: 'Bench Press',
+      video: 'https://www.youtube.com/watch?v=vthMCtgVtFw',
     },
     {
-      title: 'Przysiad',
-      video: 'https://www.youtube.com/embed/NEduXlZ8zSk',
+      title: 'Barbell Squat',
+      video: 'https://www.youtube.com/watch?v=1oed-UmAxFs',
     },
   ]
 
