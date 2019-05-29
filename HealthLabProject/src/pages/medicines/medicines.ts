@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProvidersDrugsProvider} from '../../providers/providers-drugs/providers-drugs';
 import { Observable } from 'rxjs';
@@ -12,42 +12,21 @@ import 'rxjs/Rx';
   templateUrl: 'medicines.html'
 })
 
-export class MedicinesPage implements OnInit {
+export class MedicinesPage{
 
   drug :any;
   results: any;
-  searchTerm= 'ibuprofen';
-  userList=[];
-  reported_effects_keys:any;
-  reported_effects: any;
-  something:  Observable<Result[]>
 
+  something:  Observable<Result[]>;
+  medicineName: string;
 
   constructor(public navCtrl: NavController, private drugsProvider: ProvidersDrugsProvider) {
   }
-
-  // ngOnInit(){
-  //     this.drugsProvider.getDetails(this.searchTerm).subscribe((res) => {
-  //       this.drug = res[ 'result' ][ 0 ];
-  //       this.reported_effects_keys = Object.keys(this.drug[ 'side_effects' ][ 'reported_effects' ]);
-  //       this.reported_effects = this.drug[ 'side_effects' ][ 'reported_effects' ];
-  //       console.log('My result'+ this.drug);
-  //     });
       
-  // }
-
-  ngOnInit(){
-    this.something = this.drugsProvider.getDetails(this.searchTerm).map(e => e);
-    console.log(this.something[0]);
-  }
-
   search(){
-    let newea = this.drugsProvider.getDetails(this.searchTerm);
-    console.log(newea);
+    this.something = this.drugsProvider.getDetails(this.medicineName).map(e => e);
+    console.log(this.something[0]);
 
-    this.drugsProvider.getDetails(this.searchTerm).subscribe(e => {
-      this.results = e;
-      console.log('My result'+ this.results);
-    });
+    return this.something;
   }
 }

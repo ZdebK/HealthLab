@@ -16,15 +16,12 @@
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col size="10">
-            <div>
-              <ion-input placeholder="Ibuprofen..."></ion-input>
-            </div>
-          </ion-col>
-          <ion-col size="2">
-            <div>
-              <ion-icon (click)="search()" name="search"></ion-icon>
-            </div>
+          <ion-col>
+              <ion-input placeholder="Type name of medicine here..."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
+              <!-- <button ionButton style="background-color: gray;" block (click)="search()" >
+                SEARCH
+                <ion-icon name="search"></ion-icon>
+              </button> -->
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -32,22 +29,37 @@
   </ion-card>
 
   <ion-list *ngFor="let p of something | async">
+
     <ion-card-content>
-      <ion-label>Purpose</ion-label>
+      <ion-label>What is {{medicineName}}?</ion-label>
       <ion-row >{{p.purpose}}</ion-row>
     </ion-card-content>
+
     <ion-card-content>
-      <ion-label> Indication and usage</ion-label>
+      <ion-label>Indications and usage</ion-label>
       <ion-row>{{p.indications_and_usage}}</ion-row>
     </ion-card-content>
+  
+    <ion-card-content>
+      <ion-label>When stop using?</ion-label>
+      <ion-row>{{p.stop_use}}</ion-row>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-label>How to store?</ion-label>
+    <ion-row>{{p.storage_and_handling}}</ion-row>
+    </ion-card-content>
+
     <ion-card-content>
       <ion-label>Information for pregnant women</ion-label>
-      <ion-row >{{p.pregnancy_or_breast_feeding}}</ion-row>
+      <ion-row>{{p.pregnancy_or_breast_feeding}}</ion-row>
     </ion-card-content>
+
     <ion-card-content>
-      <ion-label>Warnings</ion-label>
-      <ion-row>{{p.warnings}}</ion-row>
-    </ion-card-content>
+        <ion-label>How to use {{medicineName}}?</ion-label>
+        <ion-row>{{p.dosage_and_administration}}</ion-row>
+      </ion-card-content>
+
   </ion-list>
 
 </ion-content>
