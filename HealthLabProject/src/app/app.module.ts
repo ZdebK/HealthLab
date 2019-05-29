@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DishesPage } from '../pages/dishes/dishes';
 import { LiquidsPage } from '../pages/liquids/liquids';
 import { MyExercisesPage } from '../pages/myexercises/myexercises';
+import { LocalNotifications } from '@ionic-native/local-notifications/index';
 
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 
@@ -50,7 +51,9 @@ import { AngularFireAuthModule } from "angularfire2/auth";
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+    
   ]
 })
 export class AppModule {}
