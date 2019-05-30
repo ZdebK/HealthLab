@@ -13,7 +13,7 @@ import { DishesPage } from '../pages/dishes/dishes';
 import { LiquidsPage } from '../pages/liquids/liquids';
 import { MyExercisesPage } from '../pages/myexercises/myexercises';
 import { LocalNotifications } from '@ionic-native/local-notifications/index';
-
+import { YoutubePipe } from '../pipes/youtube/youtube';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 
 import { AngularFireModule } from "angularfire2";
@@ -28,8 +28,8 @@ import { AngularFireAuthModule } from "angularfire2/auth";
     MedicinesPage, 
     LiquidsPage,
     DishesPage, 
-    MyExercisesPage
-
+    MyExercisesPage,
+    YoutubePipe
   ],
   imports: [
     BrowserModule,
