@@ -20,7 +20,7 @@
    
    
           <ion-content padding>
-            <form (ngSubmit)="singleUseNotificationWater()">
+            <form (ngSubmit)="submit()">
               <ion-list>
                 <ion-title>Create single use notification</ion-title>
                 <ion-item>
@@ -41,6 +41,29 @@
               </div>
             </form>
           </ion-content>
+
+          <ion-content padding>
+              <form (ngSubmit)="singleUseNotificationWater()">
+                <ion-list>
+                  <ion-title>Create single use notification</ion-title>
+                  <ion-item>
+                    <ion-label floating>Additional description: </ion-label>
+                    <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label floating>Date</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label floating>Time</ion-label>
+                    <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
+                  </ion-item>
+                </ion-list>
+                <div padding>
+                  <button ion-button full round>Add Notification</button>
+                </div>
+              </form>
+            </ion-content>
        
           <ion-content padding>
               <form (ngSubmit)="dailyNotificationWater()">
@@ -76,4 +99,5 @@
                 </div>
               </form>
             </ion-content>
+            <button (click)="recurringNotification()">HERE</button>
   </ion-content>

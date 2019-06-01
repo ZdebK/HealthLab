@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform} from 'ionic-angular';
-import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} from '@ionic-native/local-notifications/index';
+import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} from '@ionic-native/local-notifications';
  
 @Component({
   selector: 'liquids',
@@ -15,13 +15,26 @@ export class LiquidsPage {
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
     this.platform.ready().then(() => {
       this.localNotifications.on('click').subscribe(res => {
-        let msg = res.data ? res.data.mydata : '';
+        let msg3 = res.data ? res.data.mydata : '';
+     
+      let alert3 = this.alert.create({
+        title: 'Congratulation!',
+        subTitle: msg3,
+        buttons: ['OK']
       });
+      alert3.present();
+    });
+    });
 
       this.localNotifications.on('trigger').subscribe(res => {
         let msg = res.data ? res.data.mydata : '';
+        let alert2 = this.alert.create({
+          title: 'Congratulation!',
+          subTitle: msg,
+          buttons: ['OK']
+        });
+        alert2.present();
       });
-    });
   }
 
 
@@ -34,7 +47,7 @@ export class LiquidsPage {
     
     this.localNotifications.schedule({
        text: "Drink glass of water :)" + this.data.description,
-       trigger: {at: new Date(new Date().getTime() + 3600)},
+       trigger: {at: new Date(new Date().getTime() + 7200)},
        led: 'FF0000',
        sound: 'file://assets/sounds/water_message.mp3',
     });
@@ -50,24 +63,24 @@ export class LiquidsPage {
   singleUseNotificationWater(){
     const diffTime = Math.abs(new Date().getTime() - new Date((this.data.date)).getTime());
     console.log(diffTime);
-    var yr = new Date(this.data.date).getFullYear();
+    const yr = new Date(this.data.date).getFullYear();
     console.log( yr);
-    var mnth = new Date(this.data.date).getMonth();
+    const mnth = new Date(this.data.date).getMonth();
     console.log(mnth);
-    var dat = new Date(this.data.date).getDate();
+    const dat = new Date(this.data.date).getDate();
     console.log(dat);
-    var currentDate = new Date();
+    //const currentDate = new Date();
 
 
 
-    var hour2 = this.data.time.split(":")[0];
-    var minute2 = this.data.time.split(":")[0];
+    //const hour2 = this.data.time.split(":")[0];
+    //const minute2 = this.data.time.split(":")[0];
     this.localNotifications.schedule({
       id: 1, 
       text: "Drink glass of water :)\n" + this.data.description,
       trigger: {at: new Date(new Date().getTime() + diffTime)},
       led: 'FF0000',
-      sound: 'file://assets/sounds/water_message.mp3',
+      sound: 'file://assets/audio/message.mp3',
    });
    this.data = { title:'', description:'', date:'', time:'' };
   }
@@ -82,7 +95,7 @@ export class LiquidsPage {
       text: "Drink glass of water :)\n" + this.dataDaily.description,
       trigger: { firstAt : new Date(), every: ELocalNotificationTriggerUnit.MINUTE },
       led: 'FF0000',
-      sound: 'file://assets/sounds/water_message.mp3',
+      sound: 'file://assets/audio/message.mp3',
    });
   });
 }
@@ -93,17 +106,8 @@ export class LiquidsPage {
       title: 'Attention',
       text: 'Simons Notification',
       data: { mydata: 'My hidden message this is' },
-      trigger: { in: 5, unit: ELocalNotificationTriggerUnit.SECOND },
+      trigger: { every: ELocalNotificationTriggerUnit.SECOND },
     });
-
-    // Works as well!
-    // this.localNotifications.schedule({
-    //   id: 1,
-    //   title: 'Attention',
-    //   text: 'Simons Notification',
-    //   data: { mydata: 'My hidden message this is' },
-    //   trigger: { at: new Date(new Date().getTime() + 5 * 1000) }
-    // });
   }
 
   recurringNotification() {
@@ -114,7 +118,6 @@ export class LiquidsPage {
       trigger: { every: ELocalNotificationTriggerUnit.MINUTE }
     });
   }
-
     updateDay(day){
       this.dataDaily.day = day;
     }
@@ -125,5 +128,3 @@ export class LiquidsPage {
       })
     }
 }
-
-// trigger: { every: { hour: this.dataDaily.time, }, count: 1 },

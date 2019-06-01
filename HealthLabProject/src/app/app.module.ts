@@ -9,7 +9,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DishesPage } from '../pages/dishes/dishes';
 import { LiquidsPage } from '../pages/liquids/liquids';
 import { MyExercisesPage } from '../pages/myexercises/myexercises';
-import { LocalNotifications } from '@ionic-native/local-notifications/index';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { YoutubePipe } from '../pipes/youtube/youtube';
 
 import { FIREBASE_CONFIG } from "./app.firebase.config";
