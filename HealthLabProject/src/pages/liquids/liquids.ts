@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform} from 'ionic-angular';
-import { LocalNotifications, ELocalNotificationTriggerUnit} from '@ionic-native/local-notifications/index';
+import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} from '@ionic-native/local-notifications/index';
  
 @Component({
   selector: 'liquids',
@@ -10,8 +10,18 @@ export class LiquidsPage {
   data = { title:'', description:'', date:'', time:'' };
   dataDaily =  {description:'', day:'',date: '' , time:'' };
   sas : Date;
+  scheduled: ILocalNotification[];
  
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
+    this.platform.ready().then(() => {
+      this.localNotifications.on('click').subscribe(res => {
+        let msg = res.data ? res.data.mydata : '';
+      });
+
+      this.localNotifications.on('trigger').subscribe(res => {
+        let msg = res.data ? res.data.mydata : '';
+      });
+    });
   }
 
 
@@ -77,10 +87,42 @@ export class LiquidsPage {
   });
 }
    //this.dataDaily = {description:'', day:'',date: '',  time:'' };
-  
- 
+   scheduleNotification() {
+    this.localNotifications.schedule({
+      id: 1,
+      title: 'Attention',
+      text: 'Simons Notification',
+      data: { mydata: 'My hidden message this is' },
+      trigger: { in: 5, unit: ELocalNotificationTriggerUnit.SECOND },
+    });
+
+    // Works as well!
+    // this.localNotifications.schedule({
+    //   id: 1,
+    //   title: 'Attention',
+    //   text: 'Simons Notification',
+    //   data: { mydata: 'My hidden message this is' },
+    //   trigger: { at: new Date(new Date().getTime() + 5 * 1000) }
+    // });
+  }
+
+  recurringNotification() {
+    this.localNotifications.schedule({
+      id: 22,
+      title: 'Recurring',
+      text: 'Simons Recurring Notification',
+      trigger: { every: ELocalNotificationTriggerUnit.MINUTE }
+    });
+  }
+
     updateDay(day){
       this.dataDaily.day = day;
+    }
+  
+    getAll() {
+      this.localNotifications.getAll().then((res: ILocalNotification[]) => {
+        this.scheduled = res;
+      })
     }
 }
 
