@@ -50,7 +50,7 @@
                     <ion-label floating>Additional description: </ion-label>
                     <ion-input type="text" [(ngModel)]="dataDaily.description" name="description"></ion-input>
                   </ion-item>
-                  <ion-item>
+                  <!-- <ion-item>
                       <ion-label floating>Select Day</ion-label>
                       <ion-select [(ngModel)]="dataDaily.day" (ionChange)="updateDay(dataDaily.day)" okText="Okay" cancelText="Dismiss" name="day">
                           <ion-option value="1">Monday</ion-option>
@@ -61,7 +61,11 @@
                           <ion-option value="6">Saturday</ion-option>
                           <ion-option value="7">Sunday</ion-option>
                         </ion-select>
-                  </ion-item>
+                  </ion-item> -->
+                  <ion-item>
+                      <ion-label floating>Date</ion-label>
+                      <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="dataDaily.date" name="date"></ion-datetime>
+                    </ion-item>
                   <ion-item>
                     <ion-label floating>Time</ion-label>
                     <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="dataDaily.time" name="time"></ion-datetime>
