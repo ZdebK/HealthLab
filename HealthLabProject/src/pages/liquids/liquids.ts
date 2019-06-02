@@ -13,28 +13,6 @@ export class LiquidsPage {
   scheduled: ILocalNotification[];
  
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
-    this.platform.ready().then(() => {
-      this.localNotifications.on('click').subscribe(res => {
-        let msg3 = res.data ? res.data.mydata : '';
-     
-      let alert3 = this.alert.create({
-        title: 'Congratulation!',
-        subTitle: msg3,
-        buttons: ['OK']
-      });
-      alert3.present();
-    });
-    });
-
-      this.localNotifications.on('trigger').subscribe(res => {
-        let msg = res.data ? res.data.mydata : '';
-        let alert2 = this.alert.create({
-          title: 'Congratulation!',
-          subTitle: msg,
-          buttons: ['OK']
-        });
-        alert2.present();
-      });
   }
 
 
