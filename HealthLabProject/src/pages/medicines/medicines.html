@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="content-style">
-  <ion-card class="card">
+  <ion-card class="cardNotiandUsual">
     <ion-card-header>
       <ion-card-title>Medicine Search</ion-card-title>
     </ion-card-header>
@@ -16,12 +16,12 @@
       <p>Just type name below and wait a second.</p>
     </ion-card-content>
   </ion-card>
-  <ion-card class="card">
-        <ion-input placeholder="Medicine Name.."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
+  <ion-card class="cardNotiandUsual">
+        <ion-input color="dark" placeholder="Medicine Name.."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
   </ion-card>
 
   <ion-list *ngFor="let p of something | async">
-    <ion-card>
+    <ion-card class="card">
       <ion-card-content>
         <ion-label>What is {{medicineName}}?</ion-label>
         <ion-row >{{p.purpose}}</ion-row>

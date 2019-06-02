@@ -8,7 +8,7 @@
   </ion-header>
    
   <ion-content class="content-style" padding>
-      <ion-card styles="box-shadow: ">
+      <ion-card class="cardNotiandUsual">
           <ion-card-header>
               <ion-card-title class="center">Single Reminder</ion-card-title>
           </ion-card-header>
@@ -16,15 +16,15 @@
               <form (ngSubmit)="singleUseNotificationWater()">
                  
                   <ion-item>
-                      <ion-label floating>Additional discrption</ion-label>
+                      <ion-label color="dark" floating>Descrption</ion-label>
                       <ion-input type="text" [(ngModel)]="liquid.description" name="description"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Date</ion-label>
+                      <ion-label color="dark" floating>Date</ion-label>
                       <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="liquid.date" name="date"></ion-datetime>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Time</ion-label>
+                      <ion-label color="dark" floating>Time</ion-label>
                       <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="liquid.time" name="time"></ion-datetime>
                   </ion-item>
                  
@@ -36,7 +36,7 @@
           </ion-card-content>
       </ion-card>
 
-      <ion-card class="card">
+      <ion-card class="cardNotiandUsual">
           <ion-card-header>
               <ion-card-title class="center">Daily Drink Reminder</ion-card-title>
           </ion-card-header>
@@ -44,11 +44,11 @@
               <form (ngSubmit)="dailyNotificationWater()">
                  
                   <ion-item>
-                      <ion-label floating>Description: </ion-label>
+                      <ion-label color="dark" floating>Description</ion-label>
                       <ion-input type="text" [(ngModel)]="liquidDaily.description" name="description"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Time</ion-label>
+                      <ion-label color="dark" floating>Time</ion-label>
                       <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="liquidDaily.time" name="time"></ion-datetime>
                   </ion-item>
                 
