@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Pills</ion-title>
+    </ion-navbar>
+</ion-header>
+       
+<ion-content class="content-style" padding>
+    <ion-card styles="box-shadow: ">
+        <ion-card-header>
+            <ion-card-title class="center">Single Reminder</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <form (ngSubmit)="singleUseNotificationPills()">
+                <ion-item>
+                    <ion-label floating>Name of medicine</ion-label>
+                    <ion-input type="text" [(ngModel)]="pills.description" name="description"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Date</ion-label>
+                    <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="pills.date" name="date"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Time</ion-label>
+                    <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="pills.time" name="time"></ion-datetime>
+                </ion-item>
+                
+                <div padding>
+                <button ion-button full round>SET REMINDER</button>
+                </div>
+
+            </form> 
+        </ion-card-content>
+    </ion-card>
+</ion-content>
