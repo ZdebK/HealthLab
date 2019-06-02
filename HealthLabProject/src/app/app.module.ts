@@ -19,10 +19,12 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { ProvidersDrugsProvider } from '../providers/providers-drugs/providers-drugs';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HomePage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
     MyApp,
+    HomePage,
     MedicinesPage, 
     LiquidsPage,
     DishesPage, 
@@ -39,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    HomePage,
     MedicinesPage,
     LiquidsPage,
     DishesPage,
