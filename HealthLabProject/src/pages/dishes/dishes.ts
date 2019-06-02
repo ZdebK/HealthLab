@@ -8,78 +8,81 @@ import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} 
   templateUrl: 'dishes.html'
 })
 export class DishesPage {
-
-  data = { title:'', description:'', date:'', time:'' };
-  dataDaily =  {description:'', day:'',date: '' , time:'' };
-  sas : Date;
+  breakfast = { description:'', date:'', time:'' };
+  lunch = { description:'', date:'', time:'' };
+  dinner = { description:'', date:'', time:'' };
   scheduled: ILocalNotification[];
  
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
   }
  
-
   notificationEatBrakfast(){
-    const diffTime = Math.abs(new Date().getTime() - new Date((this.data.date)).getTime());
-    console.log(diffTime);
-    const yr = new Date(this.data.date).getFullYear();
-    console.log( yr);
-    const mnth = new Date(this.data.date).getMonth();
-    console.log(mnth);
-    const dat = new Date(this.data.date).getDate();
-    console.log(dat);
-    //const currentDate = new Date();
-    //const hour2 = this.data.time.split(":")[0];
-    //const minute2 = this.data.time.split(":")[0];
-    this.localNotifications.schedule({
-      id: 1, 
-      text: "Drink glass of water :)\n" + this.data.description,
-      trigger: {at: new Date(new Date().getTime() + diffTime)},
-      led: 'FF0000',
-      sound: 'file://assets/audio/message.mp3',
-   });
-   this.data = { title:'', description:'', date:'', time:'' };
+    const hourB = this.breakfast.time.split(":")[0];
+    const minuteB = this.breakfast.time.split(":")[1];
+    
+    this.platform.ready().then(() => {
+      this.localNotifications.schedule({
+        id: 5,
+        text: "Hi! Let's start day with breakfast! \n" + this.breakfast.description,
+        trigger: { firstAt : new Date(), every: ELocalNotificationTriggerUnit.DAY, hour: hourB, minutes: minuteB },
+        led: 'FF0000',
+        sound: 'file://assets/audio/message.mp3',
+      });
+    });
+    let alert = this.alert.create({
+      title: 'Breakfast reminder successfully set',
+      buttons: ['OK']
+    });
+    alert.present();
+   this.breakfast = {description:'', date:'', time:'' };
+  }
+
+  notificationEatLunch() {
+    const hourL = this.lunch.time.split(":")[0];
+    const minuteL = this.lunch.time.split(":")[1];
+
+    this.platform.ready().then(() => {
+      this.localNotifications.schedule({
+        id: 6,
+        text: "Time for lunch!" + this.lunch.description,
+        trigger: { firstAt : new Date(), every: ELocalNotificationTriggerUnit.DAY, hour: hourL, minutes: minuteL},
+        led: 'FF0000',
+        sound: 'file://assets/audio/message.mp3',
+      });
+    });
+    let alert = this.alert.create({
+      title: 'Lunch reminder successfully set',
+      buttons: ['OK']
+    });
+    alert.present();
+   this.lunch = {description:'', date:'', time:'' }
   }
  
   notificationEatDinner(){
-    console.log("Data" + new Date(this.dataDaily.date));
-    console.log("TIME" +   this.dataDaily.time);
-    console.log("TIME2" + this.dataDaily.time.split(":")[0]);
-    this.platform.ready().then(() => {
-    this.localNotifications.schedule({
-      id: 2,
-      text: "Drink glass of water :)\n" + this.dataDaily.description,
-      trigger: { firstAt : new Date(), every: ELocalNotificationTriggerUnit.MINUTE },
-      led: 'FF0000',
-      sound: 'file://assets/audio/message.mp3',
-   });
-  });
-}
-   //this.dataDaily = {description:'', day:'',date: '',  time:'' };
-   notificationEatLunch() {
-    this.localNotifications.schedule({
-      id: 1,
-      title: 'Attention',
-      text: 'Simons Notification',
-      data: { mydata: 'My hidden message this is' },
-      trigger: { every: ELocalNotificationTriggerUnit.SECOND },
-    });
-  }
+    const hourD = this.dinner.time.split(":")[0];
+    const minuteD = this.dinner.time.split(":")[1];
 
-  recurringNotification() {
-    this.localNotifications.schedule({
-      id: 22,
-      title: 'Recurring',
-      text: 'Simons Recurring Notification',
-      trigger: { every: ELocalNotificationTriggerUnit.MINUTE }
+    this.platform.ready().then(() => {
+      this.localNotifications.schedule({
+        id: 7,
+        text: "Time for dinner!" + this.dinner.description,
+        trigger: { firstAt : new Date(), every: ELocalNotificationTriggerUnit.DAY, hour: hourD, minutes: minuteD },
+        led: 'FF0000',
+        sound: 'file://assets/audio/message.mp3',
+      });
     });
+    let alert = this.alert.create({
+      title: 'Dinner reminder successfully set',
+      buttons: ['OK']
+    });
+    alert.present();
+   this.dinner = {description:'', date:'', time:'' };
   }
-    updateDay(day){
-      this.dataDaily.day = day;
-    }
   
-    getAll() {
-      this.localNotifications.getAll().then((res: ILocalNotification[]) => {
-        this.scheduled = res;
-      })
-    }
+  
+  getAll() {
+    this.localNotifications.getAll().then((res: ILocalNotification[]) => {
+      this.scheduled = res;
+    })
+  }
 }
