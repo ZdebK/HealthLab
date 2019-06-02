@@ -9,7 +9,7 @@
 
 
 <ion-content class="content-style" padding>
-      <ion-card class="card">
+      <ion-card class="cardNotiandUsual">
 
           <ion-card-header>
               <ion-card-title class="center">Breakfast Reminder</ion-card-title>
@@ -19,15 +19,15 @@
               <form (ngSubmit)="notificationEatBrakfast()">
 
                   <ion-item>
-                      <ion-label floating>Meal</ion-label>
+                      <ion-label color="dark" floating>Meal</ion-label>
                       <ion-input type="text" [(ngModel)]="breakfast.description" name="description"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Reminder From Date</ion-label>
+                      <ion-label color="dark" floating>Reminder From Date</ion-label>
                       <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="breakfast.date" name="date"></ion-datetime>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Time</ion-label>
+                      <ion-label color="dark" floating>Time</ion-label>
                       <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="breakfast.time" name="time"></ion-datetime>
                   </ion-item>
 
@@ -39,7 +39,7 @@
           </ion-card-content>
 
       </ion-card>
-      <ion-card class="card">
+      <ion-card class="cardNotiandUsual">
 
           <ion-card-header>
               <ion-card-title class="center">Lunch Reminder</ion-card-title>
@@ -49,15 +49,15 @@
               <form (ngSubmit)="notificationEatLunch()">
 
                   <ion-item>
-                      <ion-label floating>Meal</ion-label>
+                      <ion-label color="dark" floating>Meal</ion-label>
                       <ion-input type="text" [(ngModel)]="lunch.description" name="description"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Reminder From Date</ion-label>
+                      <ion-label color="dark" floating>Reminder From Date</ion-label>
                       <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="lunch.date" name="date"></ion-datetime>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Time</ion-label>
+                      <ion-label color="dark" floating>Time</ion-label>
                       <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="lunch.time" name="time"></ion-datetime>
                   </ion-item>
 
@@ -70,7 +70,7 @@
 
       </ion-card>
 
-      <ion-card class="card">
+      <ion-card class="cardNotiandUsual">
 
           <ion-card-header>
               <ion-card-title class="center">Dinner Reminder</ion-card-title>
@@ -80,15 +80,15 @@
               <form (ngSubmit)="notificationEatDinner()">
 
                   <ion-item>
-                      <ion-label floating>Meal</ion-label>
+                      <ion-label color="dark" floating>Meal</ion-label>
                       <ion-input type="text" [(ngModel)]="dinner.description" name="description"></ion-input>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Reminder From Date</ion-label>
+                      <ion-label color="dark" floating>Reminder From Date</ion-label>
                       <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="dinner.date" name="date"></ion-datetime>
                   </ion-item>
                   <ion-item>
-                      <ion-label floating>Time</ion-label>
+                      <ion-label color="dark" floating>Time</ion-label>
                       <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="dinner.time" name="time"></ion-datetime>
                   </ion-item>
 

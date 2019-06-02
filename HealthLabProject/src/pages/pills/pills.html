@@ -8,22 +8,22 @@
 </ion-header>
        
 <ion-content class="content-style" padding>
-    <ion-card styles="box-shadow: ">
+    <ion-card class="cardNoti">
         <ion-card-header>
             <ion-card-title class="center">Single Reminder</ion-card-title>
         </ion-card-header>
         <ion-card-content>
             <form (ngSubmit)="singleUseNotificationPills()">
                 <ion-item>
-                    <ion-label floating>Name of medicine</ion-label>
+                    <ion-label color="dark" floating>Name of medicine</ion-label>
                     <ion-input type="text" [(ngModel)]="pills.description" name="description"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-label floating>Date</ion-label>
+                    <ion-label color="dark" floating>Date</ion-label>
                     <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="pills.date" name="date"></ion-datetime>
                 </ion-item>
                 <ion-item>
-                    <ion-label floating>Time</ion-label>
+                    <ion-label color="dark" floating>Time</ion-label>
                     <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="pills.time" name="time"></ion-datetime>
                 </ion-item>
                 
