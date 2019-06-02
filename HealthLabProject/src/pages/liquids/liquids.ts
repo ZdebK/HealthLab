@@ -15,28 +15,26 @@ export class LiquidsPage {
   constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
   }
 
-
- 
-  submit() {
-    console.log(this.data);
-    const date2 = new Date(this.data.date + " " + this.data.time);
-    console.log(date2);
+  // submit() {
+  //   console.log(this.data);
+  //   const date2 = new Date(this.data.date + " " + this.data.time);
+  //   console.log(date2);
 
     
-    this.localNotifications.schedule({
-       text: "Drink glass of water :)" + this.data.description,
-       trigger: {at: new Date(new Date().getTime() + 7200)},
-       led: 'FF0000',
-       sound: 'file://assets/sounds/water_message.mp3',
-    });
-    let alert = this.alert.create({
-      title: 'Congratulation!',
-      subTitle: 'Notification setup successfully at '+ date2,
-      buttons: ['OK']
-    });
-    alert.present();
-    this.data = { title:'', description:'', date:'', time:'' };
-  }
+  //   this.localNotifications.schedule({
+  //      text: "Drink glass of water :)" + this.data.description,
+  //      trigger: {at: new Date(new Date().getTime() + 7200)},
+  //      led: 'FF0000',
+  //      sound: 'file://assets/sounds/water_message.mp3',
+  //   });
+  //   let alert = this.alert.create({
+  //     title: 'Congratulation!',
+  //     subTitle: 'Notification setup successfully at '+ date2,
+  //     buttons: ['OK']
+  //   });
+  //   alert.present();
+  //   this.data = { title:'', description:'', date:'', time:'' };
+  // }
  
   singleUseNotificationWater(){
     const diffTime = Math.abs(new Date().getTime() - new Date((this.data.date)).getTime());
