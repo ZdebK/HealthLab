@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>HealthLab</ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content class="content-style" padding>
-  <ion-card *ngFor="let video of videos">
-      <ion-card-header>
-          {{video.title}}
-      </ion-card-header>
-      <ion-card-content>
-          <iframe width="100%" height="315" [src]="video.video|youtube" frameborder="0" allowfullscreen></iframe>
-      </ion-card-content>
-  </ion-card>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>HealthLab</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content class="content-style" padding>
+    <ion-card *ngFor="let video of videos">
+        <ion-card-header>
+            {{video.title}}
+        </ion-card-header>
+        <ion-card-content>
+            <iframe width="100%" height="315" [src]="video.video|youtube" frameborder="0" allowfullscreen></iframe>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
