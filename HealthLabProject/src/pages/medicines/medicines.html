@@ -8,53 +8,51 @@
 </ion-header>
 <ion-content class="content-style">
   <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>Medicine Search</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-              <ion-input placeholder="Type name of medicine here..."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
-              <!-- <button ionButton style="background-color: gray;" block (click)="search()" >
-                SEARCH
-                <ion-icon name="search"></ion-icon>
-              </button> -->
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <p>You can find here information about usage, storage, indications etc. of any medicine.</p>
+      <p>Just type name below and wait a second.</p>
     </ion-card-content>
+  </ion-card>
+  <ion-card class="card">
+        <ion-input placeholder="Medicine Name.."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
   </ion-card>
 
   <ion-list *ngFor="let p of something | async">
-
-    <ion-card-content>
-      <ion-label>What is {{medicineName}}?</ion-label>
-      <ion-row >{{p.purpose}}</ion-row>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-label>Indications and usage</ion-label>
-      <ion-row>{{p.indications_and_usage}}</ion-row>
-    </ion-card-content>
+    <ion-card>
+      <ion-card-content>
+        <ion-label>What is {{medicineName}}?</ion-label>
+        <ion-row >{{p.purpose}}</ion-row>
+      </ion-card-content>
   
-    <ion-card-content>
-      <ion-label>When stop using?</ion-label>
-      <ion-row>{{p.stop_use}}</ion-row>
-    </ion-card-content>
+      <ion-card-content>
+        <ion-label>Indications and usage</ion-label>
+        <ion-row>{{p.indications_and_usage}}</ion-row>
+      </ion-card-content>
 
-    <ion-card-content>
-      <ion-label>How to store?</ion-label>
-    <ion-row>{{p.storage_and_handling}}</ion-row>
-    </ion-card-content>
+      <ion-card-content>
+        <ion-label>When stop using?</ion-label>
+        <ion-row>{{p.stop_use}}</ion-row>
+      </ion-card-content>
+   
+      <ion-card-content>
+        <ion-label>How to store?</ion-label>
+      <ion-row>{{p.storage_and_handling}}</ion-row>
+      </ion-card-content>
 
-    <ion-card-content>
-      <ion-label>Information for pregnant women</ion-label>
-      <ion-row>{{p.pregnancy_or_breast_feeding}}</ion-row>
-    </ion-card-content>
+      <ion-card-content>
+        <ion-label>Information for pregnant women</ion-label>
+        <ion-row>{{p.pregnancy_or_breast_feeding}}</ion-row>
+      </ion-card-content>
 
-    <ion-card-content>
+      <ion-card-content>
         <ion-label>How to use {{medicineName}}?</ion-label>
         <ion-row>{{p.dosage_and_administration}}</ion-row>
       </ion-card-content>
 
+    </ion-card>
   </ion-list>
 
 </ion-content>

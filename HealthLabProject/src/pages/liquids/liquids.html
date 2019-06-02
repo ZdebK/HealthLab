@@ -8,96 +8,55 @@
   </ion-header>
    
   <ion-content class="content-style" padding>
-      <div class="center">
-          <h3>Select reminder type</h3>
-      </div>
-   
-   
-          <ion-content class="content-style" padding>
-            <form (ngSubmit)="submit()">
-              <ion-card class="card">
-                <ion-list>
-                  <ion-title>Create single use notification</ion-title>
-                  <ion-item>
-                    <ion-label floating>Additional description: </ion-label>
-                    <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label floating>Date</ion-label>
-                    <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label floating>Time</ion-label>
-                    <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
-                  </ion-item>
-                </ion-list>
-                <div padding>
-                  <button ion-button full round>Add Notification</button>
-                </div>
-              </ion-card>
-            </form>
-          </ion-content>
-
-          <ion-content  class="content-style" padding>
+      <ion-card styles="box-shadow: ">
+          <ion-card-header>
+              <ion-card-title class="center">Single Reminder</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
               <form (ngSubmit)="singleUseNotificationWater()">
-                <ion-card class="card">
-                  <ion-list>
-                    <ion-title>Create single use notification</ion-title>
-                    <ion-item>
-                      <ion-label floating>Additional description: </ion-label>
-                      <ion-input type="text" [(ngModel)]="data.description" name="description"></ion-input>
-                    </ion-item>
-                    <ion-item>
+                 
+                  <ion-item>
+                      <ion-label floating>Additional discrption</ion-label>
+                      <ion-input type="text" [(ngModel)]="liquid.description" name="description"></ion-input>
+                  </ion-item>
+                  <ion-item>
                       <ion-label floating>Date</ion-label>
-                      <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="data.date" name="date"></ion-datetime>
-                    </ion-item>
-                    <ion-item>
+                      <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="liquid.date" name="date"></ion-datetime>
+                  </ion-item>
+                  <ion-item>
                       <ion-label floating>Time</ion-label>
-                      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="data.time" name="time"></ion-datetime>
-                    </ion-item>
-                  </ion-list>
+                      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="liquid.time" name="time"></ion-datetime>
+                  </ion-item>
+                 
                   <div padding>
-                    <button ion-button full round>Add Notification</button>
+                    <button ion-button full round>SET REMINDER</button>
                   </div>
-               </ion-card>
-              </form>
-            </ion-content>
-       
-          <ion-content class="content-style" padding>
+
+              </form> 
+          </ion-card-content>
+      </ion-card>
+
+      <ion-card class="card">
+          <ion-card-header>
+              <ion-card-title class="center">Daily Drink Reminder</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
               <form (ngSubmit)="dailyNotificationWater()">
-                <ion-card class="card">
-                  <ion-list>
-                    <ion-title>Create multi use notification</ion-title>
-                    <ion-item>
-                      <ion-label floating>Additional description: </ion-label>
-                      <ion-input type="text" [(ngModel)]="dataDaily.description" name="description"></ion-input>
-                    </ion-item>
-                    <!-- <ion-item>
-                        <ion-label floating>Select Day</ion-label>
-                        <ion-select [(ngModel)]="dataDaily.day" (ionChange)="updateDay(dataDaily.day)" okText="Okay" cancelText="Dismiss" name="day">
-                            <ion-option value="1">Monday</ion-option>
-                            <ion-option value="2">Tuesday</ion-option>
-                            <ion-option value="3">Wednesday</ion-option>
-                            <ion-option value="4">Thursday</ion-option>
-                            <ion-option value="5">Friday</ion-option>
-                            <ion-option value="6">Saturday</ion-option>
-                            <ion-option value="7">Sunday</ion-option>
-                          </ion-select>
-                    </ion-item> -->
-                    <ion-item>
-                        <ion-label floating>Date</ion-label>
-                        <ion-datetime displayFormat="DD/MM/YY" pickerFormat="D MMMM YYYY" [(ngModel)]="dataDaily.date" name="date"></ion-datetime>
-                      </ion-item>
-                    <ion-item>
+                 
+                  <ion-item>
+                      <ion-label floating>Description: </ion-label>
+                      <ion-input type="text" [(ngModel)]="liquidDaily.description" name="description"></ion-input>
+                  </ion-item>
+                  <ion-item>
                       <ion-label floating>Time</ion-label>
-                      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="dataDaily.time" name="time"></ion-datetime>
-                    </ion-item>
-                  </ion-list>
+                      <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="liquidDaily.time" name="time"></ion-datetime>
+                  </ion-item>
+                
                   <div padding>
-                    <button ion-button full round>Add Notification</button>
+                    <button ion-button full round>SET REMINDER</button>
                   </div>
-                </ion-card>
-              </form>
-            </ion-content>
-            <button (click)="recurringNotification()">HERE</button>
+
+              </form> 
+          </ion-card-content>
+      </ion-card>
   </ion-content>
