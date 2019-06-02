@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DishesPage } from '../pages/dishes/dishes';
 import { LiquidsPage } from '../pages/liquids/liquids';
+import { PillsPage } from '../pages/pills/pills';
 import { MyExercisesPage } from '../pages/myexercises/myexercises';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { YoutubePipe } from '../pipes/youtube/youtube';
@@ -26,9 +27,10 @@ import { HomePageModule } from '../pages/home/home.module';
   declarations: [
     MyApp,
     //HomePage,
-    MedicinesPage, 
+    MedicinesPage,
+    PillsPage, 
     LiquidsPage,
-    DishesPage, 
+    DishesPage,
     MyExercisesPage,
     YoutubePipe
   ],
@@ -46,6 +48,7 @@ import { HomePageModule } from '../pages/home/home.module';
     //HomePage,
     MedicinesPage,
     LiquidsPage,
+    PillsPage,
     DishesPage,
     MyExercisesPage
 
