@@ -25,8 +25,9 @@ export class ProfilePage {
   }
 
   createProfile () {
-    this.afAuth.authState.subscribe(auth => {
-      this.afDatabse.list('profile/${auth.uid}');
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabse.list('profile/${auth.uid}').push(this.profile)
+      .then(() => this.navCtrl.push('HomePage'));
     })
   }
 
