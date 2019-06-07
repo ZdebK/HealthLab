@@ -12,4 +12,22 @@
 
 <ion-content padding>
 
+    <ion-item class="content-style">
+        <ion-label floating>Username</ion-label>
+        <ion-input [(ngModel)]="profile.username"></ion-input>
+      </ion-item>
+    
+      <ion-item class="content-style">
+        <ion-label floating>First Name</ion-label>
+        <ion-input [(ngModel)]="profile.firstName"></ion-input>
+      </ion-item>
+
+      <ion-item class="content-style">
+          <ion-label floating>Last Name</ion-label>
+          <ion-input [(ngModel)]="profile.lastName"></ion-input>
+      </ion-item>
+
+      <button ion-button clear block (click)="createProfile()">Create profile</button>
+      
+
 </ion-content>
