@@ -22,6 +22,7 @@ import { ProvidersDrugsProvider } from '../providers/providers-drugs/providers-d
 import { HttpClientModule } from '@angular/common/http';
 import { HomePage } from '../pages/home/home';
 import { HomePageModule } from '../pages/home/home.module';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HomePageModule } from '../pages/home/home.module';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     HttpClientModule, 
-    HomePageModule
+    HomePageModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
