@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform} from 'ionic-angular';
 import { LocalNotifications} from '@ionic-native/local-notifications';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from "angularfire2/database";
  
 @Component({
   selector: 'pills',
@@ -10,7 +12,7 @@ export class PillsPage {
   pills = { title:'', description:'', date:'', time:'' };
  
  
-  constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
   }
  
   singleUseNotificationPills(){
@@ -35,5 +37,11 @@ export class PillsPage {
         });
     alert.present();
     this.pills = { title:'', description:'', date:'', time:'' };
+  }
+  singleNotiAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`pills/${auth.uid}`).push(this.pills)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
   }
 }
