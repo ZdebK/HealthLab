@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform} from 'ionic-angular';
 import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} from '@ionic-native/local-notifications';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from "angularfire2/database";
 
 @Component({
   selector: 'dishes',
@@ -13,7 +14,7 @@ export class DishesPage {
   dinner = { description:'', date:'', time:'' };
   scheduled: ILocalNotification[];
  
-  constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
   }
  
   notificationEatBrakfast(){
@@ -85,4 +86,27 @@ export class DishesPage {
       this.scheduled = res;
     })
   }
+
+  breakfastAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`breakfast/${auth.uid}`).push(this.breakfast)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
+  }
+
+  lunchAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`lunch/${auth.uid}`).push(this.lunch)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
+  }
+
+  dinnerAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`dinner/${auth.uid}`).push(this.dinner)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
+  }
+
+
 }
