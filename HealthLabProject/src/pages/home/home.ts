@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Profile } from '../../models/profile';
 
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,7 +12,10 @@ import { AngularFireAuth } from "angularfire2/auth";
 })
 export class HomePage {
 
-  constructor(private afAuth: AngularFireAuth, private toast: ToastController, public navCtrl: NavController, public navParams: NavParams) {
+  profileData : AngularFireObject<any>
+
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, 
+    private toast: ToastController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewWillLoad() {
@@ -24,8 +23,10 @@ export class HomePage {
       if(data && data.email && data.uid) {
       this.toast.create({
         message: "Welcome to HealthLab, "+ data.email,
-        duration: 3000
+        duration: 5000
       }).present();
+
+     return this.afDatabase.object(`profile/${data.uid}`).valueChanges();
       }
       else {
         this.toast.create({

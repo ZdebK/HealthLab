@@ -34,4 +34,14 @@
           Ephedrine
         </ion-card-content>
       </ion-card>
+
+      <ion-card class="cardNotiandUsual">
+        <ion-card-header>
+            <ion-card-title>User data:</ion-card-title>
+        </ion-card-header>
+      <p>Username: {{(profileData | async)?.username}}</p>
+      <p>First name: {{(profileData | async)?.firstName}}</p>
+      <p>Username: {{(profileData | async)?.lastName}}</p>
+    </ion-card>
+    
 </ion-content>
