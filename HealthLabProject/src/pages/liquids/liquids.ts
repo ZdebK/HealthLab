@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Platform} from 'ionic-angular';
 import { LocalNotifications, ELocalNotificationTriggerUnit, ILocalNotification} from '@ionic-native/local-notifications';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from "angularfire2/database";
+//import { Liquid } from '../../models/liquid';
  
 @Component({
   selector: 'liquids',
@@ -12,7 +15,7 @@ export class LiquidsPage {
   sas : Date;
   scheduled: ILocalNotification[];
  
-  constructor(public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, private localNotifications: LocalNotifications, private alert: AlertController, private platform: Platform){
   }
  
   singleUseNotificationWater(){
@@ -62,6 +65,20 @@ export class LiquidsPage {
   getAll() {
     this.localNotifications.getAll().then((res: ILocalNotification[]) => {
       this.scheduled = res;
+    })
+  }
+
+  singleNotiAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`liquid/${auth.uid}`).push(this.liquid)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
+  }
+
+  dailyNotiAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`liquidDaily/${auth.uid}`).push(this.liquidDaily)
+      //.then(() => this.navCtrl.push('HomePage'));
     })
   }
 
