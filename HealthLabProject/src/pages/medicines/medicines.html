@@ -17,8 +17,9 @@
     </ion-card-content>
   </ion-card>
   <ion-card class="cardNotiandUsual">
-        <ion-input color="dark" placeholder="Medicine Name.."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search()"></ion-input>
+        <ion-input color="dark" placeholder="Medicine Name.."  [(ngModel)]="medicineName" name="medicineName" (keyup.enter)="search(); drugAdd()"></ion-input>
   </ion-card>
+  
 
   <ion-list *ngFor="let p of something | async">
     <ion-card class="card">

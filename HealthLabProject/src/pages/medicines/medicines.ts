@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import {Result} from '../../providers/providers-drugs/providers-drugs';
 // import { Injectable } from '@angular/core';
 import 'rxjs/Rx'; 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from "angularfire2/database";
+ 
 
 @Component({
   selector: 'medicines',
@@ -20,7 +23,7 @@ export class MedicinesPage{
   something:  Observable<Result[]>;
   medicineName: string;
 
-  constructor(public navCtrl: NavController, private drugsProvider: ProvidersDrugsProvider) {
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, private drugsProvider: ProvidersDrugsProvider) {
   }
       
   search(){
@@ -29,4 +32,11 @@ export class MedicinesPage{
 
     return this.something;
   }
+  drugAdd () {
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.list(`medicineName/${auth.uid}`).push(this.medicineName)
+      //.then(() => this.navCtrl.push('HomePage'));
+    })
+  }
+
 }
