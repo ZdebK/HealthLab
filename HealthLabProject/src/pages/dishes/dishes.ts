@@ -108,5 +108,36 @@ export class DishesPage {
     })
   }
 
+  cancelBreakfastNotifications(){
+    this.localNotifications.cancel(5);
+    this.localNotifications.clear(5);
+    let alertDaily1 = this.alert.create({
+      title: 'Breakfast Reminder successfully deleted',
+      buttons: ['OK']
+    });
+    alertDaily1.present();
+  }
+
+  cancelLunchNotification(){
+    this.localNotifications.cancel(6);
+    this.localNotifications.clear(6);
+    let alertDaily2 = this.alert.create({
+      title: 'Lunch Reminder successfully deleted',
+      buttons: ['OK']
+    });
+    alertDaily2.present();
+  }
+
+  cancelDinnerNotification(){
+    this.localNotifications.cancel(7);
+    this.localNotifications.clear(7);
+    let alertDaily3 = this.alert.create({
+      title: 'Dinner Reminder successfully deleted',
+      buttons: ['OK']
+    });
+    alertDaily3.present();
+  }
+
+
 
 }

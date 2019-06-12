@@ -100,4 +100,24 @@
           </ion-card-content>
 
       </ion-card>
+
+      <ion-card class="cardNoti">
+            <ion-card-header>
+                  <ion-label>Cancel Dishes Notifications</ion-label>
+            </ion-card-header>
+            <ion-card-content>
+                  <ion-label>Delete breakfast reminders</ion-label>
+                  <div class="ion-icon-delete">
+                    <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelBreakfastNotifications()"></ion-icon>
+                  </div>
+                  <ion-label>Delete lunch reminders</ion-label>
+                  <div class="ion-icon-delete">
+                    <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelLunchNotification()"></ion-icon>
+                  </div>
+                  <ion-label>Delete dinner reminders</ion-label>
+                  <div class="ion-icon-delete">
+                    <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelDinnerNotification()"></ion-icon>
+                  </div>
+            </ion-card-content>
+        </ion-card>
 </ion-content>

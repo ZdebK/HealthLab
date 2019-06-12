@@ -34,4 +34,21 @@
             </form> 
         </ion-card-content>
     </ion-card>
+
+ 
+    <ion-list *ngFor="let p of pills">
+        <ion-card class="cardNoti">
+            <ion-card-content>
+            <ion-label>Name of medicine {{p.description}}</ion-label>
+            <ion-row>Usage: Every day</ion-row>
+            <ion-row>At: {{p.time}}</ion-row>
+            <ion-row>{{p.id}}</ion-row>
+            <div class="ion-icon-delete">
+                <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelPillNotification(p.id)"></ion-icon>
+            </div>
+            </ion-card-content>
+        </ion-card>
+        </ion-list>
+        
+  
 </ion-content>

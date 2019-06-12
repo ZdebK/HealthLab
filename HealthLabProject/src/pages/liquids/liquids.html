@@ -59,4 +59,19 @@
               </form> 
           </ion-card-content>
       </ion-card>
+      <ion-card class="cardNoti">
+          <ion-card-header>
+                <ion-label>Cancel Liquids Notifications</ion-label>
+          </ion-card-header>
+          <ion-card-content>
+                <ion-label>Delete single reminders</ion-label>
+                <div class="ion-icon-delete">
+                <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelSingleWaterNotifications()"></ion-icon>
+            </div>
+                <ion-label>Delete daily reminders</ion-label>
+                <div class="ion-icon-delete">
+                    <ion-icon style="margin-top: 8px;" size="large"  name="trash" size="large" (click)="cancelDailyWaterNotification()"></ion-icon>
+                </div>
+          </ion-card-content>
+      </ion-card>
   </ion-content>

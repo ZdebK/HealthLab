@@ -82,4 +82,26 @@ export class LiquidsPage {
     })
   }
 
+  
+  cancelSingleWaterNotifications(){
+    this.localNotifications.cancel(1);
+    this.localNotifications.clear(1);
+    let alertSingle = this.alert.create({
+      title: 'Single Reminder successfully deleted',
+      buttons: ['OK']
+    });
+    alertSingle.present();
+  }
+
+  cancelDailyWaterNotification(){
+    this.localNotifications.cancel(2);
+    this.localNotifications.clear(1);
+    let alertDaily = this.alert.create({
+      title: 'Daily Reminder successfully deleted',
+      buttons: ['OK']
+    });
+    alertDaily.present();
+  }
+
+
 }
