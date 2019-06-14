@@ -26,7 +26,7 @@ export class LoginPage {
     try {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.setRoot('HomePage');
+        this.navCtrl.setRoot('ProfilePage');
       }
     }
     catch(e) {

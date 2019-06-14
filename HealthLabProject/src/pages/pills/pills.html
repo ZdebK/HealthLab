@@ -28,10 +28,33 @@
                 </ion-item>
                 
                 <div padding>
-                <button ion-button full round>SET REMINDER</button>
+                <button ion-button full round >SET REMINDER</button>
                 </div>
 
             </form> 
         </ion-card-content>
     </ion-card>
+
+    <ion-card class="cardNoti">
+            <ion-card-header>
+                  <ion-label>Cancel Pills Reminder</ion-label>
+            </ion-card-header>
+            <ion-card-content>
+                  <ion-label>Delete reminder</ion-label>
+                  <div class="ion-icon-delete">
+                    <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelPillsNotifications()"></ion-icon>
+                  </div>
+            </ion-card-content>
+    </ion-card>
+        <!-- <button (click)="displayData()"> DISPLAY</button>
+        <ion-card class="cardNoti">
+            <ion-card-content>
+            <ion-label>Name of medicine {{pills.description}}</ion-label>
+            <ion-row>Usage: Every day</ion-row>
+            <ion-row>At: {{pills.id}}</ion-row>
+            <div class="ion-icon-delete">
+                <ion-icon style="margin-top: 8px;" size="large" name="trash" (click)="cancelPillNotification(p.id)"></ion-icon>
+            </div>
+            </ion-card-content>
+        </ion-card> -->
 </ion-content>
