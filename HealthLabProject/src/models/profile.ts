@@ -3,3 +3,9 @@ export interface Profile {
     firstName: string;
     lastName: string;
 }
+
+export interface Pills {
+    description: string;
+    id: number;
+    
+}
